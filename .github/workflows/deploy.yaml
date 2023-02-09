@@ -83,6 +83,6 @@ jobs:
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
-          service: nestjs
-          cluster: comento-pt
+          service: sample-nest-20230207
+          cluster: sample-nest-cls
           wait-for-service-stability: false
