@@ -1,5 +1,5 @@
 {
-  "executionRoleArn": "arn:aws:iam::216066129448:role/ecsTaskExecutionRole",
+  "executionRoleArn": "arn:aws:iam::461381951037:role/ecsTaskExecutionRole",
   "taskRoleArn": "",
   "containerDefinitions": [
     {
@@ -7,7 +7,7 @@
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
-          "awslogs-group": "/ecs/alpha-nestjs",
+          "awslogs-group": "/ecs/sample-nest-tc",
           "awslogs-region": "ap-northeast-2",
           "awslogs-stream-prefix": "ecs"
         }
@@ -31,11 +31,9 @@
       "essential": true
     }
   ],
-  "requiresCompatibilities": [
-    "FARGATE"
-  ],
+  "requiresCompatibilities": ["FARGATE"],
   "networkMode": "awsvpc",
   "cpu": "256",
-  "memory" : "512",
-  "family": "alpha-nestjs"
+  "memory": "512",
+  "family": "sample-nest-tc"
 }
