@@ -1,0 +1,108 @@
+{
+    "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:461381951037:task-definition/smoim-task-definition:14",
+    "containerDefinitions": [
+        {
+            "name": "smoim",
+            "image": "461381951037.dkr.ecr.ap-northeast-2.amazonaws.com/smoim:745e2bd566f2668d5b47284f20cf560c1644cbca",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "containerPort": 3000,
+                    "hostPort": 3000,
+                    "protocol": "tcp"
+                }
+            ],
+            "essential": true,
+            "entryPoint": [],
+            "command": [],
+            "environment": [
+                {
+                    "name": "value",
+                    "value": "value1122"
+                }
+            ],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "secrets": [
+                {
+                    "name": "key123",
+                    "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:461381951037:secret:abc123-5wNmq8"
+                },
+                {
+                    "name": "sampleKey",
+                    "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:461381951037:secret:sampleKey-xFRwus"
+                },
+                {
+                    "name": "dev/env/eonsang",
+                    "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:461381951037:secret:dev/env/eonsang-wMGyzo"
+                }
+            ],
+            "ulimits": [
+                {
+                    "name": "nofile",
+                    "softLimit": 65535,
+                    "hardLimit": 65535
+                }
+            ],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/smoim-task-definition",
+                    "awslogs-region": "ap-northeast-2",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            }
+        }
+    ],
+    "family": "smoim-task-definition",
+    "taskRoleArn": "arn:aws:iam::461381951037:role/ecsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:iam::461381951037:role/ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "revision": 14,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+        },
+        {
+            "name": "ecs.capability.execution-role-awslogs"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "ecs.capability.secrets.asm.environment-variables"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.task-iam-role"
+        },
+        {
+            "name": "ecs.capability.execution-role-ecr-pull"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2",
+        "FARGATE"
+    ],
+    "runtimePlatform": {
+        "operatingSystemFamily": "LINUX"
+    },
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "256",
+    "memory": "512",
+    "registeredAt": "2023-02-17T18:09:46.176000+09:00",
+    "registeredBy": "arn:aws:iam::461381951037:root"
+}
