@@ -1,35 +1,41 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:461381951037:task-definition/smoim-td2:1",
+    "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:461381951037:task-definition/smoim-task-definition:2",
     "containerDefinitions": [
         {
             "name": "smoim",
-            "image": "461381951037.dkr.ecr.ap-northeast-2.amazonaws.com/smoim:49ec59150ab2744130745b0542663d2c0d09fbdd",
+            "image": "461381951037.dkr.ecr.ap-northeast-2.amazonaws.com/smoim",
             "cpu": 0,
             "portMappings": [
                 {
                     "containerPort": 3000,
                     "hostPort": 3000,
-                    "protocol": "tcp",
-                    "name": "smoim-3000-tcp",
-                    "appProtocol": "http"
+                    "protocol": "tcp"
                 }
             ],
             "essential": true,
+            "entryPoint": [],
+            "command": [],
             "environment": [],
             "mountPoints": [],
             "volumesFrom": [],
+            "ulimits": [
+                {
+                    "name": "nofile",
+                    "softLimit": 65535,
+                    "hardLimit": 65535
+                }
+            ],
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-create-group": "true",
-                    "awslogs-group": "/ecs/smoim-td2",
+                    "awslogs-group": "/ecs/smoim-task-definition",
                     "awslogs-region": "ap-northeast-2",
                     "awslogs-stream-prefix": "ecs"
                 }
             }
         }
     ],
-    "family": "smoim-td2",
+    "family": "smoim-task-definition",
     "taskRoleArn": "arn:aws:iam::461381951037:role/ecsTaskExecutionRole",
     "executionRoleArn": "arn:aws:iam::461381951037:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
@@ -60,9 +66,6 @@
         },
         {
             "name": "ecs.capability.task-eni"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
         }
     ],
     "placementConstraints": [],
@@ -71,14 +74,13 @@
         "FARGATE"
     ],
     "runtimePlatform": {
-        "cpuArchitecture": "ARM64",
         "operatingSystemFamily": "LINUX"
     },
     "requiresCompatibilities": [
         "FARGATE"
     ],
-    "cpu": "1024",
-    "memory": "3072",
-    "registeredAt": "2023-02-17T13:57:53.917000+09:00",
-    "registeredBy": "arn:aws:iam::461381951037:user/smoim-ecr-permission"
+    "cpu": "256",
+    "memory": "512",
+    "registeredAt": "2023-02-17T15:45:42.975000+09:00",
+    "registeredBy": "arn:aws:iam::461381951037:root"
 }
