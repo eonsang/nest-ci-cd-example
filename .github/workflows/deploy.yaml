@@ -7,7 +7,7 @@ on:
 
 env:
   SHA: ${{ github.sha }}
-  ECR_REPOSITORY: 'smoim'
+  ECR_REPOSITORY: smoim
 
 jobs:
   test:
@@ -80,5 +80,5 @@ jobs:
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
           service: smoim
-          cluster: arm-smoim-clister
+          cluster: smoim
           wait-for-service-stability: false
