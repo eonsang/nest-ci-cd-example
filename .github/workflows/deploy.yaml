@@ -40,7 +40,6 @@ jobs:
 
   # setSecretKey:
 
-
   build_and_deploy:
     name: build docker image and ecs deploy
     runs-on: ubuntu-20.04
@@ -49,12 +48,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      
+
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: ${{ env.ESC_DEPLOY_AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ env.ESC_DEPLOY_AWS_SECRET_ACCESS_KEY }}
+          aws-access-key-id: ${{ env.AWS_DEPLOY_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ env.AWS_DEPLOY_SECRET_ACCESS_KEY }}
           aws-region: ap-northeast-2
 
       - name: Login to Amazon ECR
@@ -75,7 +74,7 @@ jobs:
       - name: Download task definition
         run: |
           aws ecs describe-task-definition --task-definition ${{ env.TASK_DEFINITION_NAME }} --query taskDefinition > task-definition.json
-          
+
       - name: Fill in the new image ID in the Amazon ECS task definition
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
