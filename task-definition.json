@@ -3,7 +3,7 @@
   "taskRoleArn": "",
   "containerDefinitions": [
     {
-      "image": "461381951037.dkr.ecr.ap-northeast-2.amazonaws.com/smoim",
+      "image": "smoim",
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
