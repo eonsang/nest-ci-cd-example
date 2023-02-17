@@ -10,7 +10,12 @@ export class AppController {
     return this.appService.getHello();
   }
 
-  @Get('/abc')
+  @Get('/key123')
+  async getHello3(): Promise<string> {
+    return this.appService.getHello3();
+  }
+
+  @Get('/abc123')
   async getHello2(): Promise<string> {
     return this.appService.getHello2();
   }
