@@ -1,5 +1,5 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:461381951037:task-definition/smoim-td2:2",
+    "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:461381951037:task-definition/smoim-td2:1",
     "containerDefinitions": [
         {
             "name": "smoim",
