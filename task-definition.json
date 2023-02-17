@@ -1,13 +1,13 @@
 {
-  "executionRoleArn": "arn:aws:iam::461381951037:role/ecsTaskExecutionRole",
+  "executionRoleArn": "arn:aws:ecs:ap-northeast-2:461381951037:task-definition/smoim-td2:1",
   "taskRoleArn": "",
   "containerDefinitions": [
     {
-      "image": "test",
+      "image": "461381951037.dkr.ecr.ap-northeast-2.amazonaws.com/smoim",
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
-          "awslogs-group": "/ecs/sample-nest-tc",
+          "awslogs-group": "/ecs/smoim-td2",
           "awslogs-region": "ap-northeast-2",
           "awslogs-stream-prefix": "ecs"
         }
@@ -35,5 +35,5 @@
   "networkMode": "awsvpc",
   "cpu": "256",
   "memory": "512",
-  "family": "sample-nest-tc"
+  "family": "smoim-td2"
 }

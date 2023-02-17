@@ -20,7 +20,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '18'
           cache: 'npm'
 
       - name: Cache node modules
@@ -71,13 +71,6 @@ jobs:
           task-definition: task-definition.json
           container-name: img
           image: ${{ steps.build-image.outputs.image }}
-
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.ECS_AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.ECS_AWS_SECRET_ACCESS_KEY }}
-          aws-region: ap-northeast-2
 
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
