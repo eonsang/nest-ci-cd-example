@@ -39,4 +39,8 @@ export class AppService {
   async getHello2(): Promise<string> {
     return process.env.key123;
   }
+
+  async env(): Promise<any> {
+    return process.env;
+  }
 }

@@ -21,4 +21,9 @@ export class AppController {
   async getHello2(): Promise<string> {
     return this.appService.getHello2();
   }
+
+  @Get('/env')
+  async env(): Promise<string> {
+    return this.appService.env();
+  }
 }
