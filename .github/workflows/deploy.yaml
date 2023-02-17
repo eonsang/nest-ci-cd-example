@@ -7,7 +7,7 @@ on:
 
 env:
   SHA: ${{ github.sha }}
-  ECR_REPOSITORY: 'sample-nestjs'
+  ECR_REPOSITORY: 'smoim'
 
 jobs:
   test:
