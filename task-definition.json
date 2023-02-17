@@ -1,5 +1,5 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:461381951037:task-definition/smoim-task-definition:14",
+    "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:461381951037:task-definition/smoim-task-definition:16",
     "containerDefinitions": [
         {
             "name": "smoim",
@@ -9,32 +9,22 @@
                 {
                     "containerPort": 3000,
                     "hostPort": 3000,
-                    "protocol": "tcp"
+                    "protocol": "tcp",
+                    "name": "smoim-3000-tcp"
                 }
             ],
             "essential": true,
-            "entryPoint": [],
-            "command": [],
-            "environment": [
-                {
-                    "name": "value",
-                    "value": "value1122"
-                }
-            ],
+            "environment": [],
             "mountPoints": [],
             "volumesFrom": [],
             "secrets": [
                 {
-                    "name": "key123",
-                    "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:461381951037:secret:abc123-5wNmq8"
+                    "name": "db_host",
+                    "valueFrom": "/ecs/smoim/dev/db_host"
                 },
                 {
-                    "name": "sampleKey",
-                    "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:461381951037:secret:sampleKey-xFRwus"
-                },
-                {
-                    "name": "dev/env/eonsang",
-                    "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:461381951037:secret:dev/env/eonsang-wMGyzo"
+                    "name": "db_username",
+                    "valueFrom": "/ecs/smoim/dev/db_username"
                 }
             ],
             "ulimits": [
@@ -58,7 +48,7 @@
     "taskRoleArn": "arn:aws:iam::461381951037:role/ecsTaskExecutionRole",
     "executionRoleArn": "arn:aws:iam::461381951037:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 14,
+    "revision": 15,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -84,6 +74,9 @@
             "name": "ecs.capability.execution-role-ecr-pull"
         },
         {
+            "name": "ecs.capability.secrets.ssm.environment-variables"
+        },
+        {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
         },
         {
@@ -103,6 +96,6 @@
     ],
     "cpu": "256",
     "memory": "512",
-    "registeredAt": "2023-02-17T18:09:46.176000+09:00",
+    "registeredAt": "2023-02-17T23:26:25.597000+09:00",
     "registeredBy": "arn:aws:iam::461381951037:root"
 }
